@@ -49,6 +49,7 @@ body {
     font-weight: bold;
     color: var(--primary-blue);
     font-size: 1.2rem;
+    font-variant: small-caps;
 }
 
 .logo img {
@@ -108,6 +109,7 @@ body {
     display: flex;
     align-items: center;
     min-height: 600px;
+    position: relative;
 }
 
 .hero-content {
@@ -157,6 +159,11 @@ body {
 .hero-image {
     position: relative;
     text-align: center;
+    max-width: 500px;
+}
+
+.hero-image img {
+    max-width: 500px;
 }
 
 .hero-stats {
@@ -245,6 +252,10 @@ body {
     font-size: 1.5rem;
     color: var(--primary-blue);
     margin: 1rem 0;
+}
+
+.product-card img {
+    max-width: 300px;
 }
 
 .ingredients {
@@ -357,6 +368,10 @@ body {
     font-size: 1.1rem;
 }
 
+.real-fruit .content-left img {
+    max-width: 500px;
+}
+
 .benefits-list {
     list-style: none;
 }
@@ -372,6 +387,10 @@ body {
     border-radius: 30px;
     padding: 4rem;
     margin-bottom: 4rem;
+}
+
+.fresh-taste .content-right img {
+    max-width: 500px;
 }
 
 .stat-badge {
