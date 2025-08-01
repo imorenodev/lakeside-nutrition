@@ -261,7 +261,11 @@ body {
 }
 
 .product-card img {
-    max-width: 300px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1rem;
 }
 
 .ingredients {
@@ -433,6 +437,15 @@ body {
     color: var(--primary-orange);
     font-weight: bold;
     font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.social-handle:hover {
+    color: var(--secondary-blue);
+    transform: translateY(-2px);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .gallery-grid {
@@ -659,6 +672,21 @@ body {
     color: #9CA3AF;
     font-size: 1.2rem;
     text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-2px);
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    transition: filter 0.3s ease;
+}
+
+.social-links a:hover .social-icon {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(346deg) brightness(100%) contrast(97%);
 }
 
 .footer-column h4 {
@@ -846,6 +874,11 @@ body {
         padding: 1.5rem;
     }
     
+    .product-card img {
+        width: 180px;
+        height: 180px;
+    }
+    
     .benefits {
         padding: 2rem 0;
     }
@@ -1025,6 +1058,11 @@ body {
     
     .product-card {
         padding: 1rem;
+    }
+    
+    .product-card img {
+        width: 150px;
+        height: 150px;
     }
     
     .product-card h3 {
