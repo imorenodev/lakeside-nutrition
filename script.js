@@ -80,17 +80,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Counter animation for stats
-    function animateCounter(element, target, duration = 2000) {
+    function animateCounter(element, target, unit = '%', duration = 2000) {
         let start = 0;
         const increment = target / (duration / 16);
         
         function updateCounter() {
             start += increment;
             if (start < target) {
-                element.textContent = Math.floor(start) + '%';
+                element.textContent = Math.floor(start) + unit;
                 requestAnimationFrame(updateCounter);
             } else {
-                element.textContent = target + '%';
+                element.textContent = target + unit;
             }
         }
         updateCounter();
@@ -101,8 +101,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const statObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const target = parseInt(entry.target.textContent);
-                animateCounter(entry.target, target);
+                const originalText = entry.target.textContent;
+                const target = parseInt(originalText);
+                const unit = originalText.includes('g') ? 'g' : '%';
+                animateCounter(entry.target, target, unit);
                 statObserver.unobserve(entry.target);
             }
         });
