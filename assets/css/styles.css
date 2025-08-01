@@ -321,6 +321,7 @@ body {
 .brand {
     color: var(--primary-orange);
     font-style: italic;
+    font-variant: small-caps;
 }
 
 .benefits-grid {
@@ -655,6 +656,7 @@ body {
     color: var(--primary-orange);
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    font-variant: small-caps;
 }
 
 .footer-brand p {
