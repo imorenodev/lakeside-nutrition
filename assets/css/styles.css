@@ -65,10 +65,17 @@ body {
 }
 
 .nav-menu a {
-    text-decoration: none;
-    color: var(--text-dark);
+    text-decoration: none !important;
+    color: var(--text-dark) !important;
     font-weight: 500;
     transition: color 0.3s;
+}
+
+.nav-menu a:link,
+.nav-menu a:visited,
+.nav-menu a:active {
+    color: var(--text-dark) !important;
+    text-decoration: none !important;
 }
 
 .nav-menu a:hover {
@@ -97,10 +104,20 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: background 0.3s;
+    color: #000000 !important;
+    text-decoration: none !important;
 }
 
 .join-btn:hover {
     background: #D97706;
+    color: #000000 !important;
+}
+
+.join-btn:link,
+.join-btn:visited,
+.join-btn:active {
+    color: #000000 !important;
+    text-decoration: none !important;
 }
 
 .hero {
@@ -150,10 +167,20 @@ body {
     font-size: 1.1rem;
     cursor: pointer;
     transition: background 0.3s;
+    color: #000000 !important;
+    text-decoration: none !important;
 }
 
 .cta-button:hover {
     background: #D97706;
+    color: #000000 !important;
+}
+
+.cta-button:link,
+.cta-button:visited,
+.cta-button:active {
+    color: #000000 !important;
+    text-decoration: none !important;
 }
 
 .hero-image {
@@ -233,7 +260,6 @@ body {
 
 .tab:hover {
     border-color: var(--primary-orange);
-    color: var(--primary-orange);
 }
 
 .products {
