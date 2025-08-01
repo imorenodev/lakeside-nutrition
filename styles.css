@@ -487,6 +487,24 @@ body {
     color: var(--primary-orange);
 }
 
+.testimonials-carousel {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.carousel-container {
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.testimonials-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -497,6 +515,16 @@ body {
     background: #FCE7F3;
     padding: 2rem;
     border-radius: 20px;
+    min-width: 100%;
+    max-width: 600px;
+    width: 600px;
+    margin: 0 auto;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .testimonial p:first-child {
@@ -531,6 +559,67 @@ body {
 
 .rating {
     color: var(--yellow);
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.carousel-btn {
+    background: var(--primary-orange);
+    color: var(--white);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.carousel-btn:hover {
+    background: #E55A2B;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.carousel-btn:disabled {
+    background: #E5E7EB;
+    color: #9CA3AF;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #E5E7EB;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--primary-orange);
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    background: var(--secondary-blue);
 }
 
 .footer {
@@ -820,14 +909,26 @@ body {
         padding: 0 1rem;
     }
     
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .testimonials-carousel {
         padding: 0 1rem;
     }
     
     .testimonial {
         padding: 1.5rem;
+        width: 100%;
+        max-width: 500px;
+        min-height: 260px;
+    }
+    
+    .carousel-nav {
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
     }
     
     .footer {
@@ -948,6 +1049,20 @@ body {
     
     .testimonial {
         padding: 1rem;
+        width: 100%;
+        max-width: 400px;
+        min-height: 240px;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .carousel-nav {
+        gap: 0.75rem;
+        margin-top: 1rem;
     }
     
     .fresh-taste {

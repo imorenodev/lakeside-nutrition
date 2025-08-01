@@ -202,46 +202,178 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Testimonial carousel (if needed)
-    let currentTestimonial = 0;
-    const testimonials = document.querySelectorAll('.testimonial');
-    
-    function showNextTestimonial() {
-        if (window.innerWidth <= 768) {
-            testimonials.forEach((testimonial, index) => {
-                if (index === currentTestimonial) {
-                    testimonial.style.display = 'block';
+    // Testimonials Carousel
+    const carousel = {
+        track: document.querySelector('.testimonials-track'),
+        testimonials: document.querySelectorAll('.testimonial'),
+        prevBtn: document.querySelector('.prev-btn'),
+        nextBtn: document.querySelector('.next-btn'),
+        dots: document.querySelectorAll('.dot'),
+        currentSlide: 0,
+        
+        init() {
+            if (!this.track) return;
+            
+            this.updateCarousel();
+            this.addEventListeners();
+            this.addTouchSupport();
+        },
+        
+        updateCarousel() {
+            const translateX = -this.currentSlide * 100;
+            this.track.style.transform = `translateX(${translateX}%)`;
+            
+            // Update dots
+            this.dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === this.currentSlide);
+            });
+            
+            // Update button states
+            this.prevBtn.disabled = this.currentSlide === 0;
+            this.nextBtn.disabled = this.currentSlide === this.testimonials.length - 1;
+        },
+        
+        goToSlide(slideIndex) {
+            this.currentSlide = Math.max(0, Math.min(slideIndex, this.testimonials.length - 1));
+            this.updateCarousel();
+        },
+        
+        nextSlide() {
+            this.goToSlide(this.currentSlide + 1);
+        },
+        
+        prevSlide() {
+            this.goToSlide(this.currentSlide - 1);
+        },
+        
+        addEventListeners() {
+            this.nextBtn.addEventListener('click', () => this.nextSlide());
+            this.prevBtn.addEventListener('click', () => this.prevSlide());
+            
+            this.dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => this.goToSlide(index));
+            });
+            
+            // Auto-play (optional)
+            setInterval(() => {
+                if (this.currentSlide === this.testimonials.length - 1) {
+                    this.goToSlide(0);
                 } else {
-                    testimonial.style.display = 'none';
+                    this.nextSlide();
+                }
+            }, 5000);
+        },
+        
+        addTouchSupport() {
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+            
+            this.track.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+                this.track.style.transition = 'none';
+            });
+            
+            this.track.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                
+                currentX = e.touches[0].clientX;
+                const diffX = currentX - startX;
+                const translateX = (-this.currentSlide * 100) + (diffX / this.track.offsetWidth * 100);
+                this.track.style.transform = `translateX(${translateX}%)`;
+            });
+            
+            this.track.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                
+                isDragging = false;
+                this.track.style.transition = 'transform 0.5s ease';
+                
+                const diffX = currentX - startX;
+                const threshold = this.track.offsetWidth * 0.25;
+                
+                if (Math.abs(diffX) > threshold) {
+                    if (diffX > 0) {
+                        this.prevSlide();
+                    } else {
+                        this.nextSlide();
+                    }
+                } else {
+                    this.updateCarousel();
                 }
             });
             
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-        } else {
-            testimonials.forEach(testimonial => {
-                testimonial.style.display = 'block';
+            // Mouse drag support for desktop
+            let isMouseDown = false;
+            
+            this.track.addEventListener('mousedown', (e) => {
+                startX = e.clientX;
+                isMouseDown = true;
+                this.track.style.transition = 'none';
+                this.track.style.cursor = 'grabbing';
             });
+            
+            this.track.addEventListener('mousemove', (e) => {
+                if (!isMouseDown) return;
+                
+                currentX = e.clientX;
+                const diffX = currentX - startX;
+                const translateX = (-this.currentSlide * 100) + (diffX / this.track.offsetWidth * 100);
+                this.track.style.transform = `translateX(${translateX}%)`;
+            });
+            
+            this.track.addEventListener('mouseup', (e) => {
+                if (!isMouseDown) return;
+                
+                isMouseDown = false;
+                this.track.style.transition = 'transform 0.5s ease';
+                this.track.style.cursor = 'grab';
+                
+                const diffX = currentX - startX;
+                const threshold = this.track.offsetWidth * 0.25;
+                
+                if (Math.abs(diffX) > threshold) {
+                    if (diffX > 0) {
+                        this.prevSlide();
+                    } else {
+                        this.nextSlide();
+                    }
+                } else {
+                    this.updateCarousel();
+                }
+            });
+            
+            this.track.addEventListener('mouseleave', () => {
+                if (isMouseDown) {
+                    isMouseDown = false;
+                    this.track.style.transition = 'transform 0.5s ease';
+                    this.track.style.cursor = 'grab';
+                    this.updateCarousel();
+                }
+            });
+            
+            // Set initial cursor
+            this.track.style.cursor = 'grab';
         }
-    }
+    };
+    
+    // Initialize carousel
+    carousel.init();
     
     // Handle window resize
     window.addEventListener('resize', function() {
         if (window.innerWidth <= 768) {
             mobileMenuToggle.style.display = 'block';
-            showNextTestimonial();
         } else {
             mobileMenuToggle.style.display = 'none';
             navMenu.classList.remove('mobile-active');
-            testimonials.forEach(testimonial => {
-                testimonial.style.display = 'block';
-            });
         }
     });
     
     // Initial setup
     if (window.innerWidth <= 768) {
         mobileMenuToggle.style.display = 'block';
-        showNextTestimonial();
     }
     
     // Form validation (if forms are added later)
