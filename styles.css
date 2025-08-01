@@ -228,6 +228,12 @@ body {
     background: var(--primary-orange);
     color: var(--white);
     border-color: var(--primary-orange);
+    transform: scale(1.05);
+}
+
+.tab:hover {
+    border-color: var(--primary-orange);
+    color: var(--primary-orange);
 }
 
 .products {
@@ -241,7 +247,7 @@ body {
     border-radius: 20px;
     padding: 2rem;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    transition: all 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .product-card:hover {

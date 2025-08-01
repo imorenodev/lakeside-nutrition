@@ -26,19 +26,56 @@ document.addEventListener('DOMContentLoaded', function() {
     
     filterTabs.forEach(tab => {
         tab.addEventListener('click', function() {
+            const isAlreadyActive = this.classList.contains('active');
+            
             // Remove active class from all tabs
             filterTabs.forEach(t => t.classList.remove('active'));
-            // Add active class to clicked tab
-            this.classList.add('active');
             
-            // Add animation effect
+            let filterCategory = null;
+            
+            if (!isAlreadyActive) {
+                // Add active class to clicked tab if it wasn't active
+                this.classList.add('active');
+                filterCategory = this.getAttribute('data-filter');
+            }
+            // If it was already active, we leave filterCategory as null to show all
+            
+            // Filter and animate products
             productCards.forEach(card => {
-                card.style.opacity = '0.5';
+                const cardCategory = card.getAttribute('data-category');
+                
+                // Fade out first
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
                 setTimeout(() => {
-                    card.style.opacity = '1';
-                }, 150);
+                    if (filterCategory === null || cardCategory === filterCategory) {
+                        // Show all products if no filter, or matching products
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        // Hide non-matching products
+                        card.style.display = 'none';
+                    }
+                }, 200);
             });
         });
+    });
+    
+    // Initialize filter on page load - show all products by default
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show all products on initial load
+        productCards.forEach(card => {
+            card.style.display = 'block';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        });
+        
+        // Remove active class from all tabs to start with no filter
+        filterTabs.forEach(t => t.classList.remove('active'));
     });
     
     // Smooth scrolling for navigation links
@@ -212,22 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
     }
-    
-    // Search functionality placeholder
-    const searchBtn = document.querySelector('.search-btn');
-    if (searchBtn) {
-        searchBtn.addEventListener('click', function() {
-            alert('Search functionality coming soon!');
-        });
-    }
-    
-    // Cart functionality placeholder
-    const cartBtn = document.querySelector('.cart-btn');
-    if (cartBtn) {
-        cartBtn.addEventListener('click', function() {
-            alert('Shopping cart coming soon!');
-        });
-    }
+
 });
 
 // CSS animations for ripple effect

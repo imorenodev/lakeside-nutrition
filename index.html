@@ -14,15 +14,12 @@
                 <span>lakeside nutrition</span>
             </div>
             <nav class="nav-menu">
-                <a href="#home">Shop All</a>
                 <a href="#protein-shakes">Protein Shakes</a>
                 <a href="#energized-teas">Energized Teas</a>
                 <a href="#protein-coffees">Protein Coffees</a>
                 <a href="#about">About Us</a>
             </nav>
             <div class="nav-actions">
-                <button class="search-btn">🔍</button>
-                <button class="cart-btn">🛒</button>
                 <button class="join-btn">Join Up</button>
             </div>
         </div>
@@ -33,7 +30,7 @@
             <div class="hero-content">
                 <h1>Fuel <span class="italic">your power</span> with protein-packed nutrition in every sip.</h1>
                 <p>Build strength, boost energy, and satisfy cravings with our premium protein shakes, energized teas, and protein coffees</p>
-                <button class="cta-button">Shop Protein</button>
+                <button class="cta-button">Join Now For The Latest Deals</button>
             </div>
             <div class="hero-image">
                 <img src="smoothie.png" alt="Lakeside Nutrition Protein Shake">
@@ -48,13 +45,13 @@
             <div class="section-header">
                 <h2>Power up your day -</h2>
                 <div class="filter-tabs">
-                    <button class="tab active">Protein Shakes</button>
-                    <button class="tab">Energized Teas</button>
-                    <button class="tab">Protein Coffees</button>
+                    <button class="tab" data-filter="protein-shakes">Protein Shakes</button>
+                    <button class="tab" data-filter="energized-teas">Energized Teas</button>
+                    <button class="tab" data-filter="protein-coffees">Protein Coffees</button>
                 </div>
             </div>
             <div class="products">
-                <div class="product-card">
+                <div class="product-card" data-category="protein-shakes">
                     <img src="protein-shake.png" alt="Chocolate Power Shake">
                     <h3>Chocolate Power Shake</h3>
                     <p class="ingredients">WHEY PROTEIN + COCOA + BANANA</p>
@@ -64,7 +61,7 @@
                         <span class="price">$8.99</span>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-category="energized-teas">
                     <img src="smoothie.png" alt="Berry Blast Energy Tea">
                     <h3>Berry Blast Energy Tea</h3>
                     <p class="ingredients">GREEN TEA + MIXED BERRIES + GINSENG</p>
@@ -74,7 +71,7 @@
                         <span class="price">$6.99</span>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-category="protein-coffees">
                     <img src="coffee.png" alt="Mocha Protein Coffee">
                     <h3>Mocha Protein Coffee</h3>
                     <p class="ingredients">ESPRESSO + WHEY PROTEIN + COCOA</p>
@@ -84,9 +81,9 @@
                         <span class="price">$7.99</span>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-category="energized-teas">
                     <img src="tea.webp" alt="Energized Blackberry Tea">
-                    <h3>"Energized Blackberry Tea</h3>
+                    <h3>Energized Blackberry Tea</h3>
                     <p class="ingredients">BLACKBERRY + EARL GREY TEA</p>
                     <p class="description">Antioxidant-rich blackberry blend with natural caffeine boost. Clean energy without the crash, packed with electrolytes.</p>
                     <div class="product-info">
@@ -94,7 +91,7 @@
                         <span class="price">$6.99</span>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-category="protein-coffees">
                     <img src="vanilla-latte.png" alt="Vanilla Protein Latte">
                     <h3>Vanilla Protein Latte</h3>
                     <p class="ingredients">ESPRESSO + VANILLA PROTEIN + ALMOND MILK</p>
@@ -152,7 +149,7 @@
             <div class="content-left">
                 <h2>Experience <span class="italic">the power</span> of protein nutrition</h2>
                 <p>Our drinks are expertly crafted to fuel your workouts, boost your energy, and support your fitness goals</p>
-                <button class="cta-button">Shop Now</button>
+                <button class="cta-button">Join Up</button>
             </div>
             <div class="content-right">
                 <img src="protein-nutrition.png" alt="Protein Nutrition">
