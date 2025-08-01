@@ -261,8 +261,8 @@ body {
 }
 
 .product-card img {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
     border-radius: 15px;
     margin-bottom: 1rem;
@@ -875,8 +875,8 @@ body {
     }
     
     .product-card img {
-        width: 180px;
-        height: 180px;
+        width: 300px;
+        height: 300px;
     }
     
     .benefits {
@@ -1061,8 +1061,8 @@ body {
     }
     
     .product-card img {
-        width: 150px;
-        height: 150px;
+        width: 300px;
+        height: 300px;
     }
     
     .product-card h3 {
