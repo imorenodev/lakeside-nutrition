@@ -173,6 +173,14 @@ body {
 
 .cta-button:hover {
     background: #D97706;
+    color: #000000 !important;
+}
+
+.cta-button:link,
+.cta-button:visited,
+.cta-button:active {
+    color: #000000 !important;
+    text-decoration: none !important;
 }
 
 .hero-image {
