@@ -92,29 +92,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Intersection Observer for animations
+    // Intersection Observer for staggered animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                // Stagger based on position among siblings
+                const parent = entry.target.parentElement;
+                const siblings = Array.from(parent.children);
+                const index = siblings.indexOf(entry.target);
+                entry.target.style.transitionDelay = `${index * 0.1}s`;
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
-    
+
     // Observe elements for animation
     const animatedElements = document.querySelectorAll('.product-card, .benefit, .testimonial, .gallery-item');
     animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.classList.add('animate-on-scroll');
         observer.observe(el);
     });
+
+    // Subtle parallax on hero image
+    const heroImage = document.querySelector('.hero-image');
+    if (heroImage) {
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            if (scrollY < 800) {
+                heroImage.style.transform = `translateY(${scrollY * 0.08}px)`;
+            }
+        }, { passive: true });
+    }
     
     // Counter animation for stats
     function animateCounter(element, target, unit = '%', duration = 2000) {
@@ -408,7 +422,7 @@ const rippleCSS = `
         top: 100%;
         left: 0;
         right: 0;
-        background: white;
+        background: var(--light-bg);
         flex-direction: column;
         padding: 1rem;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
