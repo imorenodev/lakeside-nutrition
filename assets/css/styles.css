@@ -1276,3 +1276,155 @@ h1, h2, h3, h4, h5, h6 {
         padding: 1.5rem 0.75rem;
     }
 }
+
+/* ===========================
+   MENU CATEGORY SECTIONS
+   =========================== */
+
+.menu-category {
+    padding: 3rem 0;
+}
+
+.menu-category + .menu-category {
+    border-top: 1px solid var(--border-light);
+}
+
+.category-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.category-photo {
+    width: 280px;
+    height: 280px;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-md);
+}
+
+.category-info {
+    flex: 1;
+    min-width: 260px;
+    padding-top: 0.5rem;
+}
+
+.category-info h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin: 0 0 0.4rem 0;
+}
+
+.category-price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--primary-orange);
+    margin-bottom: 0.5rem;
+}
+
+.category-meta {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 0;
+    max-width: 480px;
+}
+
+.menu-items-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.menu-item {
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-sm);
+    background: var(--light-bg);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+    box-shadow: var(--shadow-sm);
+    border-color: var(--primary-orange);
+    transform: translateY(-2px);
+}
+
+.menu-item h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 0.3rem 0;
+}
+
+.menu-item .item-ingredients {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ===========================
+   RESPONSIVE — MENU CATEGORIES
+   =========================== */
+
+@media (max-width: 768px) {
+    .menu-category {
+        padding: 2rem 0;
+    }
+
+    .category-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .category-photo {
+        width: 100%;
+        max-width: 400px;
+        height: 220px;
+    }
+
+    .category-info {
+        min-width: unset;
+        padding-top: 0;
+    }
+
+    .category-meta {
+        max-width: 100%;
+    }
+
+    .menu-items-list {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 0 1rem;
+    }
+
+    .menu-item {
+        padding: 0.85rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-photo {
+        height: 180px;
+    }
+
+    .category-info h3 {
+        font-size: 1.35rem;
+    }
+
+    .category-price {
+        font-size: 1.05rem;
+    }
+
+    .menu-items-list {
+        padding: 0 0.75rem;
+    }
+}
