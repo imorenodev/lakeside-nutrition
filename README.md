@@ -54,7 +54,7 @@ lakeside-nutrition/
 │   ├── js/
 │   │   └── script.js
 │   └── images/
-│       ├── logo.webp
+│       ├── lakeside-logo-transparent.png
 │       ├── product images/
 │       ├── social media images/
 │       └── icons/
