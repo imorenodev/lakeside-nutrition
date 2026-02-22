@@ -13,7 +13,7 @@
     --light-bg: #FDF6EE;
     --white: #FFFFFF;
     --text-dark: #1F2937;
-    --text-light: #6B7280;
+    --text-light: #4B5563;
     --border-light: #E5E7EB;
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
     --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
@@ -28,6 +28,81 @@ body {
     line-height: 1.7;
     color: var(--text-dark);
     background-color: var(--white);
+}
+
+/* ===========================
+   ACCESSIBILITY: Skip to content
+   =========================== */
+.skip-to-content {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 9999;
+    padding: 1rem 1.5rem;
+    background: var(--primary-orange);
+    color: var(--white);
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    border-radius: 0 0 var(--radius-sm) 0;
+    font-size: 1rem;
+}
+
+.skip-to-content:focus {
+    left: 0;
+    outline: 3px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* ===========================
+   ACCESSIBILITY: Focus indicators
+   =========================== */
+*:focus-visible {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+[role="tab"]:focus-visible {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.join-btn:focus-visible,
+.cta-button:focus-visible {
+    outline: 3px solid var(--primary-blue);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgba(30, 58, 138, 0.2);
+}
+
+.nav-menu a:focus-visible {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.carousel-btn:focus-visible {
+    outline: 3px solid var(--primary-blue);
+    outline-offset: 3px;
+}
+
+.dot:focus-visible {
+    outline: 3px solid var(--primary-blue);
+    outline-offset: 3px;
+}
+
+.footer a:focus-visible,
+.footer-legal a:focus-visible {
+    outline: 2px solid var(--primary-orange);
+    outline-offset: 2px;
+}
+
+.social-links a:focus-visible {
+    outline: 2px solid var(--primary-orange);
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -263,7 +338,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stat-text {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     color: var(--text-light);
 }
 
@@ -1458,5 +1533,54 @@ h1, h2, h3, h4, h5, h6 {
 
     .menu-items-list {
         padding: 0 0.75rem;
+    }
+}
+
+/* ===========================
+   ACCESSIBILITY: Mobile menu toggle
+   =========================== */
+.mobile-menu-toggle {
+    background: none;
+    border: 2px solid transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    line-height: 1;
+    color: var(--text-dark);
+}
+
+.mobile-menu-toggle:focus-visible {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: 2px;
+}
+
+/* ===========================
+   ACCESSIBILITY: Reduced motion
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .animate-on-scroll {
+        opacity: 1;
+        transform: none;
+    }
+
+    .hero-image {
+        transform: none !important;
+    }
+
+    .menu-item:hover,
+    .product-card:hover,
+    .benefit-icon:hover,
+    .gallery-item:hover {
+        transform: none;
     }
 }
