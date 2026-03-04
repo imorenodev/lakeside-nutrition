@@ -60,16 +60,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterTabs = document.querySelectorAll('.tab');
     const productCards = document.querySelectorAll('.product-card');
 
+    // Set initial aria-pressed on filter tabs
+    filterTabs.forEach(tab => {
+        tab.setAttribute('aria-pressed', tab.classList.contains('active') ? 'true' : 'false');
+    });
+
     filterTabs.forEach(tab => {
         tab.addEventListener('click', function() {
             const isAlreadyActive = this.classList.contains('active');
 
-            filterTabs.forEach(t => t.classList.remove('active'));
+            filterTabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-pressed', 'false');
+            });
 
             let filterCategory = null;
 
             if (!isAlreadyActive) {
                 this.classList.add('active');
+                this.setAttribute('aria-pressed', 'true');
                 filterCategory = this.getAttribute('data-filter');
             }
 
@@ -110,9 +119,12 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                target.scrollIntoView({
-                    behavior: prefersReducedMotion ? 'auto' : 'smooth',
-                    block: 'start'
+                // Account for sticky header height to prevent focus obscuration
+                var headerHeight = document.querySelector('.navbar') ? document.querySelector('.navbar').offsetHeight : 0;
+                var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth'
                 });
                 // Move focus to target for keyboard users
                 target.setAttribute('tabindex', '-1');
