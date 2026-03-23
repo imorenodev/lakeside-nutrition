@@ -1642,6 +1642,22 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
+.item-price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--primary-orange);
+    margin-left: 0.5rem;
+    white-space: nowrap;
+}
+
+.menu-item h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+}
+
 /* Staggered animation delays for menu items */
 .menu-item:nth-child(1) { animation-delay: 0.05s; }
 .menu-item:nth-child(2) { animation-delay: 0.1s; }
