@@ -670,6 +670,29 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.mailing-list-cta {
+    margin-top: 3rem;
+    padding: 2.5rem 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(135deg, var(--white), rgba(253, 246, 238, 0.6));
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+}
+
+.mailing-list-text {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+.mailing-list-btn {
+    display: inline-block;
+}
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
