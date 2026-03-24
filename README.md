@@ -20,7 +20,7 @@ Welcome to Lakeside Nutrition - your premier destination for protein shakes, ene
 **Lakeside Nutrition**  
 Denville, NJ 07834  
 📞 (555) 123-4567  
-📧 hello@lakesidenutrition.com
+📧 marvinsantos@lakesidenutrition.com
 
 ## 📱 Connect With Us
 
