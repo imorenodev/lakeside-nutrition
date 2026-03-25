@@ -364,6 +364,37 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-light);
 }
 
+/* Order Now */
+.order-now {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.order-now .section-header {
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.order-now-text {
+    font-size: 1.15rem;
+    color: var(--text-medium);
+    margin-bottom: 2rem;
+}
+
+.order-now-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.order-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
 .product-grid {
     padding: 6rem 0;
     max-width: 1200px;
