@@ -3,7 +3,8 @@
     "allow": [
       "Bash(mkdir:*)",
       "Bash(mv:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(grep -ril \"order.*now\\\\|Order Now\" /root/lakeside-nutrition/ --include=*.html --include=*.js --include=*.jsx --include=*.tsx --include=*.ts --include=*.vue --include=*.php)"
     ],
     "deny": []
   }
