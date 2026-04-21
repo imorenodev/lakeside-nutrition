@@ -395,6 +395,34 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.1rem;
 }
 
+.toast-btn {
+    background: var(--primary-blue);
+    padding: 1rem 2.5rem 1rem 2.5rem;
+    position: relative;
+    overflow: visible;
+}
+
+.toast-btn:hover {
+    background: #162d6e;
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.35);
+}
+
+.preferred-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--accent-amber);
+    color: var(--text-dark);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
 .product-grid {
     padding: 6rem 0;
     max-width: 1200px;
