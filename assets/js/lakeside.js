@@ -162,7 +162,7 @@
   /* ---------- Scroll reveal (added via JS so no-JS shows everything) ---------- */
   function setupReveal() {
     if (reduceMotion || !('IntersectionObserver' in window)) return;
-    var targets = document.querySelectorAll('.product-card, .nutrition-item, .testimonial, .promo-card, .menu-list-item');
+    var targets = document.querySelectorAll('.product-card, .nutrition-item, .testimonial, .promo-card');
     if (!targets.length) return;
 
     var obs = new IntersectionObserver(function (entries) {
