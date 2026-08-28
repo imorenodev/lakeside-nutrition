@@ -75,7 +75,7 @@
     var slides = [
       { eyebrow: 'Protein shakes · $11.95', title: 'Tastes like dessert,\nfuels like breakfast', text: '35–50g of clean protein blended into nostalgic, dessert-style shakes. Zero sugar guilt.', image: 'assets/images/ChunkyMonkeyShake.jpg', tone: '#1E90C6' },
       { eyebrow: 'Energy teas · $9.95', title: 'Liquid sunshine,\nzero crash', text: 'Electrolytes, B12, and 180mg of clean caffeine. Like sipping golden hour on the lake.', image: 'assets/images/PinkLightning.jpg', tone: '#F0468B' },
-      { eyebrow: 'Bowls & oats · $10.95', title: 'Protein-packed\nmornings', text: 'Greek yogurt, cottage cheese, and overnight oat bowls layered with real fruit and crunch.', image: 'assets/images/StrawberryShortcakeYogurt.jpg', tone: '#7CC242' }
+      { eyebrow: 'Protein bowls · $10.95', title: 'Protein-packed\nmornings', text: 'Real fruit, house-made chia jams, granola, and crunch layered over a high-protein base.', image: 'assets/images/StrawberryShortcakeYogurt.jpg', tone: '#7CC242' }
     ];
     var el = {
       eyebrow: document.querySelector('[data-hero="eyebrow"]'),

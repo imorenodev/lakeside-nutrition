@@ -543,7 +543,8 @@ ul { list-style: none; }
   border-bottom: 1px dashed var(--line);
 }
 .menu-list-item .name { font-family: var(--font-display); font-weight: 500; font-size: 1.02rem; color: var(--text-strong); }
-.menu-list-item .price { font-weight: 600; font-size: 14px; color: var(--coral); white-space: nowrap; }
+.menu-list-item .price,
+.product-top .price { font-weight: 600; font-size: 14px; color: var(--coral); white-space: nowrap; }
 
 /* ---------- Promo banner ---------- */
 .promo { padding: 0 24px var(--section-y); }
